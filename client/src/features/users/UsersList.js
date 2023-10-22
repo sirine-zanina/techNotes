@@ -1,9 +1,22 @@
-import React from 'react'
+import { useGetUsersQuery } from "./usersApiSlice";
 
 const UsersList = () => {
-  return (
-    <h1>UsersList</h1>
-  )
-}
+  const {
+    data: users,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetUsersQuery;
 
-export default UsersList
+  let content;
+
+  if (isLoading) content = <p>Loading...</p>;
+
+  if (isError) {
+    content = <p className="errmsg">{error?.data?.message}</p>;
+  }
+  return <h1>UsersList</h1>;
+};
+
+export default UsersList;
