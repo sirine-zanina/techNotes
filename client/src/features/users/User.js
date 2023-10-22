@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 import { selectUserById } from "./usersSlice";
 
 
-const User = () => {
+const User = ({ userId}) => {
+
+    const user = useSelector
   return (
     <div>User</div>
   )
